@@ -1,26 +1,29 @@
 // src/components/FeaturedCollections.jsx
 import React from 'react';
 import FeaturedCard from './FeaturedCard';
+import featuredClassic from '../assets/images/featured-classic.png';
+import featuredSport from '../assets/images/featured-sport.png';
+import featuredLimited from '../assets/images/featured-limited.png';
 
 const FeaturedCollections = () => {
   const featuredWatches = [
     {
       id: 1,
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c331",
+      imageUrl: featuredClassic,
       title: "Classic",
       linkHref: "#classic",
       hasSale: true,
     },
     {
       id: 2,
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c338",
+      imageUrl: featuredSport,
       title: "Sport",
       linkHref: "#sport",
       hasSale: true,
     },
     {
       id: 3,
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c32c",
+      imageUrl: featuredLimited,
       title: "Limited Edition",
       linkHref: "#limited-edition",
       hasSale: true,
@@ -33,7 +36,7 @@ const FeaturedCollections = () => {
         <div className="text-center mb-12">
           <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 inline-block relative pb-2">
             FEATURED
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700"></span> {/* Line under FEATURED */}
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700"></span>
           </h2>
         </div>
 

@@ -1,5 +1,7 @@
 // src/components/Testimonial.jsx
 import React from 'react';
+import profileLeeDoe from '../assets/images/profile-lee-doe.png';
+import testimonialWatch from '../assets/images/testimonial-watch.png';
 
 const Testimonial = () => {
   return (
@@ -32,7 +34,7 @@ const Testimonial = () => {
           <div className="flex items-center gap-4 mb-8">
             <div className="w-16 h-16 rounded-full bg-[#292929] overflow-hidden">
                <img
-                src="http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c337"
+                src={profileLeeDoe}
                 alt="Lee Doe"
                 className="w-full h-full object-cover"
               />
@@ -66,7 +68,7 @@ const Testimonial = () => {
            
            <div className="relative z-10 w-[450px] h-[450px] bg-gray-300">
              <img
-                src="http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c339"
+                src={testimonialWatch}
                 alt="Testimonial Watch"
                 className="w-full h-full object-cover"
               />

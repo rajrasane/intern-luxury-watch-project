@@ -1,6 +1,11 @@
 // src/components/Bestsellers.jsx
 import React from 'react';
 import ProductCard from './ProductCard';
+import product1 from '../assets/images/product-1.png';
+import product2 from '../assets/images/product-2.png';
+import product3 from '../assets/images/product-3.png';
+import product4 from '../assets/images/product-4.png';
+import product5 from '../assets/images/product-5.png';
 
 const Bestsellers = () => {
   const products = [
@@ -8,31 +13,31 @@ const Bestsellers = () => {
       id: 1,
       name: "First One",
       price: "₹890",
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c32e",
+      imageUrl: product1,
     },
     {
       id: 2,
       name: "Second One",
       price: "₹890",
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c335",
+      imageUrl: product2,
     },
     {
       id: 3,
       name: "Third One",
       price: "₹890",
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c32d",
+      imageUrl: product3,
     },
     {
       id: 4,
       name: "Fourth One",
       price: "₹890",
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c336",
+      imageUrl: product4,
     },
     {
       id: 5,
       name: "Fifth One",
       price: "₹890",
-      imageUrl: "http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c334",
+      imageUrl: product5,
     },
   ];
 
