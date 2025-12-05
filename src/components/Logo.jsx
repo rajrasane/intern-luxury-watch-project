@@ -14,7 +14,7 @@ const Logo = () => {
         </svg>
       </div>
       <span className="font-roboto font-bold text-base tracking-widest text-black">
-        OMEGA
+        LuxWatch
       </span>
     </div>
   );

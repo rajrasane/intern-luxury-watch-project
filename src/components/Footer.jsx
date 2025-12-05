@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="w-full lg:w-1/4">
             <h3 className="font-roboto font-medium text-xl text-[#2e2e2e] mb-6">Our information</h3>
             <p className="font-roboto font-normal text-base text-[#595959] leading-relaxed">
-              Omega Luxury Watches Shop No. 12, Ground Floor<br />
+              LuxWatch Luxury Watches Shop No. 12, Ground Floor<br />
               DLF Emporio Mall, Vasant Kunj<br />
               New Delhi - 110070<br />
               India
@@ -75,7 +75,7 @@ const Footer = () => {
                    <path d="M4.5 4.5C4.5 4.5 6.5 6.5 6.5 6.5" stroke="transparent"/>
                 </g>
              </svg>
-            <span className="font-roboto font-normal text-sm">Omega || All rigths reserved</span>
+            <span className="font-roboto font-normal text-sm">LuxWatch || All rigths reserved</span>
           </div>
         </div>
       </div>
