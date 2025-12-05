@@ -1,11 +1,10 @@
 // src/components/BrandStory.jsx
 import React from 'react';
-import brandStory from '../assets/images/brand-story.png';
 
 const BrandStory = () => {
   return (
     <section className="bg-[#fcfcfc] py-16">
-      <div className="max-w-screen-xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-screen-xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         {/* Text Content */}
         <div className="lg:w-1/2 text-center lg:text-left">
           <div className="mb-8">
@@ -24,11 +23,11 @@ const BrandStory = () => {
 
         {/* Image */}
         <div className="lg:w-1/2 flex justify-center lg:justify-end">
-          <div className="relative w-72 h-72 bg-orange-400 p-6 flex items-center justify-center"> {/* Orange background for content img */}
+          <div className="relative w-72 h-72 bg-orange-400 p-6 flex items-center justify-center">
             <img
-              src={brandStory}
+              src="http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c32f"
               alt="Brand Story"
-              className="max-w-full max-h-full object-cover relative z-10 -translate-x-4 -translate-y-4" // Offset image slightly for effect
+              className="max-w-full max-h-full object-cover relative z-10 -translate-x-4 -translate-y-4 shadow-xl"
             />
           </div>
         </div>
