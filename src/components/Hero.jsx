@@ -1,5 +1,6 @@
 // src/components/Hero.jsx
 import React from 'react';
+import heroWatch from '../assets/images/hero-watch.png';
 
 const Hero = () => {
   return (
@@ -22,7 +23,7 @@ const Hero = () => {
         <div className="lg:w-1/2 flex justify-center lg:justify-end relative">
            {/* Mobile/Tablet Background Image if needed */}
           <img
-            src="http://localhost:9001/assets/by-file-media-id/dceca7c4-6ded-8178-8007-3588fce7c332" // Watch Image
+            src={heroWatch} // Watch Image
             alt="Luxury Watch"
             className="max-w-[80%] md:max-w-[60%] lg:max-w-full h-auto object-cover drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
           />

@@ -31,12 +31,12 @@ const FeaturedCollections = () => {
   ];
 
   return (
-    <section className="bg-[#e5e5ea] py-16">
+    <section className="bg-[#e5e5ea] dark:bg-[#2b2b2b] py-16 transition-colors duration-300">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 inline-block relative pb-2">
+          <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 dark:text-gray-200 inline-block relative pb-2">
             FEATURED
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700"></span>
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700 dark:bg-gray-200"></span> {/* Line under FEATURED */}
           </h2>
         </div>
 

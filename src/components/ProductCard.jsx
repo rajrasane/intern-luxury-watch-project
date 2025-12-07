@@ -11,7 +11,7 @@ const ProductCard = ({ imageUrl, name, price }) => {
   );
 
   return (
-    <div className="relative w-40 h-72 bg-white border border-gray-200 shadow-lg flex flex-col items-center justify-between p-4 rounded-lg overflow-hidden">
+    <div className="relative w-40 h-72 bg-white dark:bg-[#1f1f1f] border border-gray-200 dark:border-gray-800 shadow-lg flex flex-col items-center justify-between p-4 rounded-lg overflow-hidden transition-colors duration-300">
       {/* Product Image */}
       <div className="flex-grow flex items-center justify-center p-2">
         <img src={imageUrl} alt={name} className="max-w-full max-h-40 object-contain" />
@@ -19,12 +19,12 @@ const ProductCard = ({ imageUrl, name, price }) => {
 
       {/* Product Info */}
       <div className="text-center mt-2">
-        <p className="font-roboto font-medium text-sm text-[#2e2e2e] truncate">{name}</p>
+        <p className="font-roboto font-medium text-sm text-[#2e2e2e] dark:text-gray-200 truncate">{name}</p>
         <p className="font-roboto font-bold text-base tracking-wider text-orange-400 mt-1">{price}</p>
       </div>
 
       {/* Add to Cart Button */}
-      <button className="absolute bottom-4 right-4 bg-black p-2 rounded-full shadow-md hover:bg-gray-800 transition-colors duration-300">
+      <button className="absolute bottom-4 right-4 bg-black dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-300">
         {shoppingBagSvg}
       </button>
     </div>

@@ -15,7 +15,7 @@ const Navigation = ({ className = "flex space-x-8", itemClassName = "text-sm" })
         <a
           key={link.name}
           href={link.href}
-          className={`font-roboto font-medium text-black hover:text-gray-600 transition-colors duration-200 ${itemClassName}`}
+          className={`font-roboto font-medium text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 ${itemClassName}`}
         >
           {link.name}
         </a>

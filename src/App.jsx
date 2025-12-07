@@ -6,22 +6,23 @@ import FeaturedCollections from './components/FeaturedCollections';
 import Bestsellers from './components/Bestsellers';
 import BrandStory from './components/BrandStory';
 import Testimonial from './components/Testimonial';
-import Footer from './components/Footer'; // Import Footer
-import './index.css'; // Ensure Tailwind CSS is imported
+import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll'; // Import SmoothScroll
+import './index.css';
 
 function App() {
   return (
-    <>
+    <SmoothScroll>
       <Header />
-      <main className="pt-16">
+      <main className="pt-16 bg-white dark:bg-[#1f1f1f] transition-colors duration-300"> {/* Added transition base */}
         <Hero />
         <FeaturedCollections />
         <Bestsellers />
         <BrandStory />
         <Testimonial />
-        <Footer /> {/* Render the Footer component */}
+        <Footer />
       </main>
-    </>
+    </SmoothScroll>
   );
 }
 
