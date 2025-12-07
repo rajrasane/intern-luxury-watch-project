@@ -17,7 +17,7 @@ const FeaturedCard = ({ imageUrl, title, linkHref, hasSale }) => {
       </div>
       <a
         href={linkHref}
-        className="bg-gray-800 dark:bg-gray-700 text-white font-roboto font-medium text-sm px-8 py-3 rounded-full hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors duration-300"
+        className="bg-black dark:bg-gray-700 text-white dark:text-gray-100 font-roboto font-medium text-sm px-8 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-300"
       >
         Explore
       </a>

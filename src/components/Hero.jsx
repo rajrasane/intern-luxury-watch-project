@@ -14,7 +14,7 @@ const Hero = () => {
           <p className="font-roboto-serif font-normal text-base md:text-lg leading-relaxed text-[#2e2e2e] lg:text-[#595959] mb-10 max-w-md mx-auto lg:mx-0">
             Latest arrival of the new imported watches of the B720 series, with a modern and resistant design.
           </p>
-          <button className="bg-black text-white font-roboto font-bold text-lg md:text-xl lg:text-3xl px-10 py-3 lg:px-12 lg:py-4 rounded-full hover:bg-gray-800 transition-colors duration-300">
+          <button className="bg-black dark:bg-gray-700 text-white dark:text-gray-100 font-roboto font-bold text-lg md:text-xl lg:text-3xl px-10 py-3 lg:px-12 lg:py-4 rounded-full hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-300">
             Shop Now
           </button>
         </div>
