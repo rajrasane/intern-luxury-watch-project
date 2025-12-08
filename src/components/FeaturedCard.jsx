@@ -1,6 +1,3 @@
-// src/components/FeaturedCard.jsx
-import React from 'react';
-
 const FeaturedCard = ({ imageUrl, title, linkHref, hasSale }) => {
   return (
     <div className="relative bg-white dark:bg-[#1f1f1f] border border-gray-100 dark:border-gray-800 shadow-md p-4 flex flex-col items-center transition-colors duration-300">

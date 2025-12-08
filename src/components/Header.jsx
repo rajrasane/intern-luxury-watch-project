@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#1f1f1f] shadow-md transition-colors duration-300">
-      <div className="max-w-screen-xl mx-auto h-16 flex items-center justify-between px-4">
+      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between px-4">
         {/* Logo */}
         <Logo />
 

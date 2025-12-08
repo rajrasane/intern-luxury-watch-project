@@ -2,7 +2,7 @@ import brandStory from '../assets/images/brand-story.png';
 
 const BrandStory = () => {
   return (
-    <section className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
+    <section id='about' className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
       <hr className='text-gray-400 my-10'></hr>
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         {/* Text Content */}

@@ -34,7 +34,7 @@ const Prodcuts = () => {
   ];
 
   return (
-    <section className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
+    <section id='new-arrivals' className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 dark:text-gray-200 inline-block relative pb-2">

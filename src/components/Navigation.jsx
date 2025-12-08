@@ -6,7 +6,6 @@ const Navigation = ({ className = "flex space-x-8", itemClassName = "text-sm" })
     { name: 'Featured', href: '#featured' },
     { name: 'New Arrivals', href: '#new-arrivals' },
     { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
