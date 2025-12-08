@@ -1,13 +1,11 @@
-// src/components/Bestsellers.jsx
-import React from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from './Products';
 import product1 from '../assets/images/product-1.png';
 import product2 from '../assets/images/product-2.png';
 import product3 from '../assets/images/product-3.png';
 import product4 from '../assets/images/product-4.png';
 import product5 from '../assets/images/product-5.png';
 
-const Bestsellers = () => {
+const Prodcuts = () => {
   const products = [
     {
       id: 1,
@@ -33,20 +31,14 @@ const Bestsellers = () => {
       price: "₹890",
       imageUrl: product4,
     },
-    {
-      id: 5,
-      name: "Fifth One",
-      price: "₹890",
-      imageUrl: product5,
-    },
   ];
 
   return (
-    <section className="bg-[#fcfcfc] dark:bg-[#121212] py-16 transition-colors duration-300">
-      <div className="max-w-screen-xl mx-auto px-4">
+    <section className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 dark:text-gray-200 inline-block relative pb-2">
-            PRODUCTS
+            New Arrivals
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700 dark:bg-gray-200"></span>
           </h2>
         </div>
@@ -66,4 +58,4 @@ const Bestsellers = () => {
   );
 };
 
-export default Bestsellers;
+export default Prodcuts;

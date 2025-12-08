@@ -1,12 +1,10 @@
-// src/components/Testimonial.jsx
-import React from 'react';
 import profileLeeDoe from '../assets/images/profile-lee-doe.png';
 import testimonialWatch from '../assets/images/testimonial-watch.png';
 
 const Testimonial = () => {
   return (
-    <section className="bg-[#fcfcfc] dark:bg-[#1f1f1f] py-16 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-screen-xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+    <section className="bg-[#fcfcfc] dark:bg-[#1f1f1f] pt-16 relative overflow-hidden transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         {/* Text Content */}
         <div className="lg:w-1/2 z-10 mt-8 lg:mt-0">
           {/* Quote Icon */}
@@ -73,6 +71,9 @@ const Testimonial = () => {
            </div>
         </div>
       </div>
+
+      <hr className='text-gray-400 mt-10'></hr>
+
     </section>
   );
 };

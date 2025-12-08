@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeaturedCollections from './components/FeaturedCollections';
-import Bestsellers from './components/Bestsellers';
+import Bestsellers from './components/NewArrivals';
 import BrandStory from './components/BrandStory';
 import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
@@ -14,7 +14,7 @@ function App() {
   return (
     <SmoothScroll>
       <Header />
-      <main className="pt-16 bg-white dark:bg-[#1f1f1f] transition-colors duration-300"> {/* Added transition base */}
+      <main className="pt-16 bg-white dark:bg-[#1f1f1f] transition-colors duration-300">
         <Hero />
         <FeaturedCollections />
         <Bestsellers />

@@ -1,4 +1,3 @@
-// src/components/SmoothScroll.jsx
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 
