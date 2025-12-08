@@ -1,6 +1,3 @@
-// src/components/Navigation.jsx
-import React from 'react';
-
 const Navigation = ({ className = "flex space-x-8", itemClassName = "text-sm" }) => {
   const navLinks = [
     { name: 'Featured', href: '#featured' },

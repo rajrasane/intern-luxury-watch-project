@@ -1,10 +1,7 @@
-// src/components/Footer.jsx
-import React from 'react';
-
 const Footer = () => {
   return (
     <footer className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 pb-8 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-16">
           {/* Our Information */}
           <div className="w-full lg:w-1/4">

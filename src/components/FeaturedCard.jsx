@@ -2,7 +2,7 @@ const FeaturedCard = ({ imageUrl, title, linkHref, hasSale }) => {
   return (
     <div className="relative bg-white dark:bg-[#1f1f1f] border border-gray-100 dark:border-gray-800 shadow-md p-4 flex flex-col items-center transition-colors duration-300">
       {hasSale && (
-        <div className="absolute top-4 left-4 bg-orange-400 text-white text-xs font-roboto font-medium px-2 py-1 rotate-[-90deg] transform origin-top-left">
+        <div className="absolute top-4 left-4 bg-orange-400 text-white text-xs font-roboto font-medium px-2 py-1 -rotate-90 transform origin-top-left">
           SALE
         </div>
       )}

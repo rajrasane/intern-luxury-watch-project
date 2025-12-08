@@ -1,5 +1,4 @@
-// src/components/Header.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import ThemeToggle from './ThemeToggle';

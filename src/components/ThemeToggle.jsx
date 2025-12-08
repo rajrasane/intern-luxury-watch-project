@@ -1,5 +1,3 @@
-// src/components/ThemeToggle.jsx
-import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
