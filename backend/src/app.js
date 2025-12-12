@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 
 app.use('/api/products', productRoutes);
 
-app.use((req,res) => res.status(404).json({ message: 'Noot Found'}));
+app.use((req,res) => res.status(404).json({ message: 'Not Found'}));
 
 app.use(errorHandler)
 
