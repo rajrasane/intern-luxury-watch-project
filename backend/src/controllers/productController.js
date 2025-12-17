@@ -16,7 +16,7 @@ exports.getOne = async (req, res, next) => {
   try {
     const { id } = req.params;
     if (!isValidId(id)) return res.status(400).json({ message: 'Invalid id' });
-    const p = await Product.findOne({ _id: id, isActive: true }).lean();
+    const p = await Product.findOne({ _id: id, 'flags.isActive': true }).lean();
     if (!p) return res.status(404).json({ message: 'Not found' });
     res.json({ data: p });
   } catch (err) { next(err); }
@@ -27,7 +27,7 @@ exports.update = async (req, res, next) => {
     const { id } = req.params;
     if (!isValidId(id)) return res.status(400).json({ message: 'Invalid id' });
     const updated = await Product.findOneAndUpdate(
-      { _id: id, isActive: true },
+      { _id: id, 'flags.isActive': true },
       req.body,
       { new: true, runValidators: true }
     );
@@ -40,7 +40,7 @@ exports.remove = async (req, res, next) => {
   try {
     const { id } = req.params;
     if (!isValidId(id)) return res.status(400).json({ message: 'Invalid id' });
-    const p = await Product.findByIdAndUpdate(id, { isActive: false }, { new: true });
+    const p = await Product.findByIdAndUpdate(id, { 'flags.isActive': false }, { new: true });
     if (!p) return res.status(404).json({ message: 'Not found' });
     res.json({ message: 'Soft deleted' });
   } catch (err) { next(err); }
@@ -52,11 +52,11 @@ exports.list = async (req, res, next) => {
     const limit = Math.min(100, Math.max(1, parseInt(req.query.limit || '10', 10)));
     const skip = (page - 1) * limit;
 
-    const filter = { isActive: true };
+    const filter = { 'flags.isActive': true };
     
     if (req.query.category) filter.category = req.query.category;
-    if (req.query.minPrice) filter.price = { ...(filter.price || {}), $gte: parseFloat(req.query.minPrice) };
-    if (req.query.maxPrice) filter.price = { ...(filter.price || {}), $lte: parseFloat(req.query.maxPrice) };
+    if (req.query.minPrice) filter['pricing.price'] = { ...(filter['pricing.price'] || {}), $gte: parseFloat(req.query.minPrice) };
+    if (req.query.maxPrice) filter['pricing.price'] = { ...(filter['pricing.price'] || {}), $lte: parseFloat(req.query.maxPrice) };
 
     let query;
     if (req.query.search) {

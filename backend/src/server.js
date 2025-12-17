@@ -10,7 +10,7 @@ mongoose.connect(MONGO)
         console.log("Mongo connected")
         app.listen(PORT, ()=> console.log("server running on port ${PORT}"))
     })
-    .catch(()=>{
+    .catch((err)=>{
         console.log('mongo connect error', err);
         process.exit(1)
     })
