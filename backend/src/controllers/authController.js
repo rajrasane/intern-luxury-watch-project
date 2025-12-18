@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = require("../models/User.js")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
+const SecretKey = require('dotenv').config().parsed.JWT_SECRET;
 
 
 exports.register = async(req, res , next) =>{
@@ -10,7 +11,7 @@ exports.register = async(req, res , next) =>{
         const hashedPassword = await bcrypt.hash(password,10);
         const user = new User({...req.body, password : hashedPassword});
         await user.save();
-        const token = jwt.sign({id: user._id, email: user.email, role: user.role}, 'ogyygyggyewsesdacxfswwzx', { expiresIn: "15m" })
+        const token = jwt.sign({id: user._id, email: user.email, role: user.role}, SecretKey, { expiresIn: "15m" })
 
         res.status(201).json({data : user , token});
     }
@@ -30,9 +31,9 @@ exports.login = async(req,res,next) => {
         if (!valid){
             return res.status(400).json({message: "Wrong user name and password"})   
         }
-        const token = jwt.sign({id: user._id, email: user.email, role: user.role}, 'ogyygyggyewsesdacxfswwzx', { expiresIn: "15m" })
+        const token = jwt.sign({id: user._id, email: user.email, role: user.role}, SecretKey, { expiresIn: "15m" })
 
-        verifyed = jwt.verify(token, 'ogyygyggyewsesdacxfswwzx')
+        verifyed = jwt.verify(token, SecretKey)
 
         if(!verifyed){
             return res.status(401).json({message: "Unauthorized access, invalid token"})
