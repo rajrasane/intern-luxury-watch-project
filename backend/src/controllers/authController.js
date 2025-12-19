@@ -1,7 +1,9 @@
-const User = require("../models/User");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+
 require('dotenv/config')
+const mongoose = require("mongoose");
+const User = require("../models/User.js")
+const jwt = require("jsonwebtoken")
+const bcrypt = require('bcrypt')
 
 const generateAccessToken = (user) =>
   jwt.sign(
@@ -121,3 +123,4 @@ exports.delete = async (req, res) =>{
   const user = await User.findByIdAndDelete(req.user.id)
   res.status(200).json({Message: "user deleted successfully"})
 }
+

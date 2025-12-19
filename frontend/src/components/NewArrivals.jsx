@@ -3,41 +3,47 @@ import product1 from '../assets/images/product-1.png';
 import product2 from '../assets/images/product-2.png';
 import product3 from '../assets/images/product-3.png';
 import product4 from '../assets/images/product-4.png';
+import { useTranslation } from "react-i18next";
 
-const Prodcuts = () => {
+const Products = () => {
+  const { t } = useTranslation();
+
   const products = [
     {
       id: 1,
-      name: "First One",
+      name: t("products.first"),
       price: "₹890",
       imageUrl: product1,
     },
     {
       id: 2,
-      name: "Second One",
+      name: t("products.second"),
       price: "₹890",
       imageUrl: product2,
     },
     {
       id: 3,
-      name: "Third One",
+      name: t("products.third"),
       price: "₹890",
       imageUrl: product3,
     },
     {
       id: 4,
-      name: "Fourth One",
+      name: t("products.fourth"),
       price: "₹890",
       imageUrl: product4,
     },
   ];
 
   return (
-    <section id='new-arrivals' className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300">
+    <section
+      id="new-arrivals"
+      className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 dark:text-gray-200 inline-block relative pb-2">
-            New Arrivals
+            {t("products.title")}
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700 dark:bg-gray-200"></span>
           </h2>
         </div>
@@ -57,4 +63,4 @@ const Prodcuts = () => {
   );
 };
 
-export default Prodcuts;
+export default Products;
