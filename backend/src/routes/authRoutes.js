@@ -1,11 +1,17 @@
-const express = require('express')
-const router = express.Router()
-const ctrl = require('../controllers/authController');
+const router = require("express").Router();
+const ctrl = require("../controllers/authController");
+const auth = require("../middleware/auth");
+const authorize = require("../middleware/authorize");
 
-console.log("In auth routes");
+router.post("/register", ctrl.register);
+router.post("/login", ctrl.login);
+router.post("/refresh", ctrl.refresh);
+router.post("/logout", ctrl.logout);
 
-router.get('/login',ctrl.login);
-router.post('/register',ctrl.register);
-router.delete('/delete/:id',ctrl.deleteUser);
+router.get("/profile", auth, ctrl.profile);
+router.get("/admin/data", auth, authorize(["admin"]), (req, res) => {
+  res.json({ secret: "admin only" });
+});
+router.delete("/delete", auth, ctrl.delete)
 
 module.exports = router;

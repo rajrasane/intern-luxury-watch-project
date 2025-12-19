@@ -7,6 +7,10 @@ function isValidId(id){
 
 exports.create = async (req, res, next) => {
   try {
+    const{name, slug, sku, category, price, images} = req.body
+    if(!name || !slug || !sku || !category || !price || !images){
+      return res.status(400).json({message: "required fields are must"})
+    }
     const p = await Product.create(req.body);
     res.status(201).json({ data: p });
   } catch (err) { next(err); }
