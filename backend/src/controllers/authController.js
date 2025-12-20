@@ -32,6 +32,11 @@ exports.register = async (req, res, next) => {
     u = await User.findOne({email: email})
     if(u) return res.status(400).json({message: "user already exist please login "})
 
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+        return res.status(400).json({ message: "Username already exists" });
+    }
+
     if (password.length < 6) {
       return res.status(400).json({
         message: "Password must be at least 6 characters"
