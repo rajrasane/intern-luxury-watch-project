@@ -20,7 +20,7 @@ function App() {
       <div className="flex flex-col min-h-screen bg-white dark:bg-[#121212] text-black dark:text-white transition-colors duration-300">
         <Header />
         
-        <main className="flex-grow">
+        <main className="grow">
           <Routes>
             {/* PersistLogin wraps ALL routes to check for session on load */}
             <Route element={<PersistLogin />}>
