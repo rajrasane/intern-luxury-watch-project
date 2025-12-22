@@ -2,7 +2,7 @@ import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // Corrected port to 3000
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
   withCredentials: true, // IMPORTANT: Send cookies with requests
   headers: {
     'Content-Type': 'application/json',
