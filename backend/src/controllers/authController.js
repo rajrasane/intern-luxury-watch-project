@@ -1,4 +1,3 @@
-
 require('dotenv/config')
 const mongoose = require("mongoose");
 const User = require("../models/User.js")
@@ -19,6 +18,13 @@ const generateRefreshToken = (user) =>
     { expiresIn: "7d" }
   );
 
+const COOKIE_OPTIONS = {
+  httpOnly: true,
+  secure: true, // Required for sameSite: 'None'
+  sameSite: 'None',
+  maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+};
+
 exports.register = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
@@ -29,7 +35,7 @@ exports.register = async (req, res, next) => {
       });
     }
 
-    u = await User.findOne({email: email})
+    const u = await User.findOne({email: email})
     if(u) return res.status(400).json({message: "user already exist please login "})
 
     const existingUser = await User.findOne({ username });
@@ -59,7 +65,8 @@ exports.register = async (req, res, next) => {
     user.refreshToken = refreshToken
     await user.save()
 
-    res.status(201).json({user: userObj, refreshToken, accessToken, message: "User registered" });
+    res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS);
+    res.status(201).json({user: userObj, accessToken, message: "User registered" });
   } catch (err) {
     next(err);
   }
@@ -85,14 +92,19 @@ exports.login = async (req, res, next) => {
     user.refreshToken = refreshToken;
     await user.save();
 
-    res.json({ accessToken, refreshToken });
+    const userObj = user.toObject();
+    delete userObj.password;
+    delete userObj.refreshToken;
+
+    res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS);
+    res.json({ user: userObj, accessToken });
   } catch (err) {
     next(err);
   }
 };
 
 exports.refresh = async (req, res) => {
-  const { refreshToken } = req.body;
+  const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) return res.sendStatus(401);
 
   const user = await User.findOne({ refreshToken });
@@ -107,15 +119,21 @@ exports.refresh = async (req, res) => {
     user.refreshToken = newRefreshToken;
     await user.save();
 
-    res.json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
+    const userObj = user.toObject();
+    delete userObj.password;
+    delete userObj.refreshToken;
+
+    res.cookie('refreshToken', newRefreshToken, COOKIE_OPTIONS);
+    res.json({ user: userObj, accessToken: newAccessToken });
   });
 };
 
 exports.logout = async (req, res) => {
-  const { refreshToken } = req.body;
-  succ = await User.findOneAndUpdate({ refreshToken }, { refreshToken: null });
-
-  if(!succ) return res.status(401).json("Invalid refresh token")
+  const refreshToken = req.cookies.refreshToken;
+  if (refreshToken) {
+    await User.findOneAndUpdate({ refreshToken }, { refreshToken: null });
+  }
+  res.clearCookie('refreshToken', COOKIE_OPTIONS);
   res.json({ message: "Logged out" });
 };
 
@@ -128,4 +146,3 @@ exports.delete = async (req, res) =>{
   const user = await User.findByIdAndDelete(req.user.id)
   res.status(200).json({Message: "user deleted successfully"})
 }
-
