@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Logo = () => {
-    return <h1 className="text-xl font-bold">LuxuryWatch</h1>;
+    return <Link to="/" className="text-xl font-bold dark:text-white">LuxWatch</Link>;
 };
 
 export default Logo;

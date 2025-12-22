@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ThemeToggle from "./ThemeToggle";
 import { useTranslation } from "react-i18next";
+import useAuthStore from "../../store/authStore";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const accessToken = useAuthStore((state) => state.accessToken);
 
     // 🌍 Language hook
     const { i18n } = useTranslation();
@@ -27,15 +30,10 @@ const Header = () => {
 
                 {/* Right side icons */}
                 <div className="flex items-center gap-4 relative">
-                    {/* Cart */}
-                    <button className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-                        🛒
-                    </button>
-
                     {/* 🌐 Language Selector */}
                     <div className="relative group">
-                        <button className="px-3 py-1 rounded-md border text-sm hover:bg-gray-200 dark:hover:bg-gray-700">
-                            🌐 Language
+                        <button className="px-3 py-1 rounded-md border text-sm hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white dark:border-gray-600">
+                            🌐
                         </button>
 
                         {/* Dropdown */}
@@ -55,7 +53,7 @@ const Header = () => {
                                 ["ml", "മലയാളം"],
                                 ["bn", "বাংলা"],
                                 ["gu", "ગુજરાતી"],
-                                ["pa", "ਪੰਜਾਬੀ"],
+                                ["pa", "ਪੰਜਾਬี"],
                                 ["ur", "اردو"],
                                 ["es", "Spanish"],
                                 ["fr", "French"],
@@ -63,7 +61,7 @@ const Header = () => {
                                 <button
                                     key={code}
                                     onClick={() => changeLanguage(code)}
-                                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
                                 >
                                     {label}
                                 </button>
@@ -74,6 +72,27 @@ const Header = () => {
                     <div className="flex items-center justify-center">
                         <ThemeToggle />
                     </div>
+
+                    {/* Auth Buttons - Rightmost */}
+                    {accessToken ? (
+                        <Link 
+                            to="/profile" 
+                            className="w-9 h-9 flex items-center justify-center bg-black dark:bg-white text-white dark:text-black rounded-full hover:opacity-80 transition-opacity"
+                            aria-label="Profile"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </Link>
+                    ) : (
+                        <Link 
+                            to="/login" 
+                            className="px-4 py-2 text-sm font-medium text-white dark:text-black bg-black dark:bg-amber-50 rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                        >
+                            Login
+                        </Link>
+                    )}
 
                     {/* Mobile Menu Button */}
                     <button
@@ -95,8 +114,13 @@ const Header = () => {
             {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="md:hidden bg-white dark:bg-[#1f1f1f] shadow-lg">
-                    <div className="px-4 py-4">
+                    <div className="px-4 py-4 flex flex-col gap-4">
                         <Navigation />
+                        {accessToken ? (
+                            <Link to="/profile" className="block w-full text-center py-2 bg-black text-white rounded dark:bg-white dark:text-black">Profile</Link>
+                        ) : (
+                            <Link to="/login" className="block w-full text-center py-2 bg-blue-600 text-white rounded">Login</Link>
+                        )}
                     </div>
                 </div>
             )}

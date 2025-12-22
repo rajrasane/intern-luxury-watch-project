@@ -4,7 +4,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[#fcfcfc] dark:bg-[#121212] pt-16 pb-8 relative overflow-hidden transition-colors duration-300">
+    <footer className="bg-[#fcfcfc] dark:bg-[#121212] border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-16">
 

@@ -43,7 +43,7 @@ const Products = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-roboto font-medium text-xl tracking-wider text-gray-700 dark:text-gray-200 inline-block relative pb-2">
-            {t("products.title")}
+            {t("products.heading")}
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gray-700 dark:bg-gray-200"></span>
           </h2>
         </div>
