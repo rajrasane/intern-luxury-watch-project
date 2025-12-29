@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers/productController');
+const auth = require('../middleware/auth');
+const authorize = require('../middleware/authorize');
 
-router.post('/', ctrl.create);
+// Public routes (no auth required)
 router.get('/', ctrl.list);
 router.get('/:id', ctrl.getOne);
-router.patch('/:id', ctrl.update);
-router.delete('/:id', ctrl.remove); // soft delete
+
+// Admin-only routes (auth + admin role required)
+router.post('/', auth, authorize(['admin']), ctrl.create);
+router.patch('/:id', auth, authorize(['admin']), ctrl.update);
+router.delete('/:id', auth, authorize(['admin']), ctrl.remove); // soft delete
 
 module.exports = router;

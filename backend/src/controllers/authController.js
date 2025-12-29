@@ -59,8 +59,8 @@ exports.register = async (req, res, next) => {
     const userObj = user.toObject();
     delete userObj.password;
 
-    const accessToken = generateAccessToken(userObj);
-    const refreshToken = generateRefreshToken(userObj);
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
 
     user.refreshToken = refreshToken
     await user.save()
@@ -138,6 +138,11 @@ exports.logout = async (req, res) => {
 };
 
 exports.profile = async (req, res) => {
+  const user = await User.findById(req.user.id).select("-password");
+  res.json(user);
+};
+
+exports.admin = async (req, res) => {
   const user = await User.findById(req.user.id).select("-password");
   res.json(user);
 };

@@ -3,13 +3,14 @@ import {create} from 'zustand';
 const authStore = (set) => ({
     user : null,
     accessToken : null,
+    role : null,
     
-    setAuth : (user,accessToken) => {
-        set({user, accessToken});
+    setAuth : (user, accessToken) => {
+        set({user, accessToken, role: user?.role || null});
     },
 
-    clearAuth : (user,accessToken) => {
-        set({user: null, accessToken: null});
+    clearAuth : () => {
+        set({user: null, accessToken: null, role: null});
     }
 })
 

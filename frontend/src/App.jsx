@@ -10,10 +10,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
+import Admin from './pages/Admin';
 
 // Auth Components
 import PersistLogin from './components/PersistLogin';
 import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
@@ -28,12 +30,21 @@ function App() {
               
               {/* Public Routes */}
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              
+              {/* Public-only Routes (redirects if logged in) */}
+              <Route element={<PublicRoute />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Route>
 
               {/* Protected Routes */}
               <Route element={<ProtectedRoute />}>
                 <Route path="/profile" element={<Profile />} />
+              </Route>
+
+              {/* Admin Routes */}
+              <Route element={<ProtectedRoute requiredRole="admin" />}>
+                <Route path="/admin" element={<Admin />} />
               </Route>
 
               {/* 404 Catch-all */}

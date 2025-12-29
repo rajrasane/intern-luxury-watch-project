@@ -11,11 +11,11 @@ export const useProfile = () => {
   });
 };
 
-export const useAdminData = () => {
+export const useAdmin = () => {
   return useQuery({
-    queryKey: ['adminData'],
+    queryKey: ['admin'],
     queryFn: async () => {
-      const response = await api.get('/auth/admin/data');
+      const response = await api.get('/auth/admin');
       return response.data;
     },
     retry: false,

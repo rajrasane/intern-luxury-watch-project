@@ -25,7 +25,6 @@ const Profile = () => {
             {user?.username?.charAt(0).toUpperCase() || "U"}
           </div>
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white">{user?.username}</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Luxury Member</p>
         </div>
         
         <div className="p-6 space-y-4">

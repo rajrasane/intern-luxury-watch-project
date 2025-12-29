@@ -9,9 +9,7 @@ router.post("/refresh", ctrl.refresh);
 router.post("/logout", ctrl.logout);
 
 router.get("/profile", auth, ctrl.profile);
-router.get("/admin/data", auth, authorize(["admin"]), (req, res) => {
-  res.json({ secret: "admin only" });
-});
+router.get("/admin", auth, authorize(["admin"]), ctrl.admin);
 router.delete("/delete", auth, ctrl.delete)
 
 module.exports = router;
