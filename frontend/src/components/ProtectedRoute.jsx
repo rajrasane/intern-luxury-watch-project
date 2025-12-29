@@ -7,11 +7,9 @@ const ProtectedRoute = ({ requiredRole = null, children }) => {
   const location = useLocation();
 
   if (!accessToken) {
-    // Redirect to login, but remember where they were trying to go!
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // Check role-based access if requiredRole is specified
   if (requiredRole && role !== requiredRole) {
     return <Navigate to="/" replace />;
   }

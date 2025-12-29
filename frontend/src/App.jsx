@@ -25,13 +25,10 @@ function App() {
         
         <main className="grow">
           <Routes>
-            {/* PersistLogin wraps ALL routes to check for session on load */}
             <Route element={<PersistLogin />}>
               
-              {/* Public Routes */}
               <Route path="/" element={<Home />} />
               
-              {/* Public-only Routes (redirects if logged in) */}
               <Route element={<PublicRoute />}>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

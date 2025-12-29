@@ -3,7 +3,7 @@ import useAuthStore from '../store/authStore';
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
-  withCredentials: true, // IMPORTANT: Send cookies with requests
+  withCredentials: true, // Send cookies with requests
   headers: {
     'Content-Type': 'application/json',
   },
@@ -27,7 +27,6 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    // Check if error is 401, not already retried, AND not a refresh attempt itself
     if (
       error.response?.status === 401 && 
       !originalRequest._retry && 
@@ -40,7 +39,7 @@ api.interceptors.response.use(
         const response = await api.post('/auth/refresh');
         const { accessToken } = response.data;
 
-        // Update store with new token (keep existing user)
+        // Update store with new token 
         const user = useAuthStore.getState().user;
         useAuthStore.getState().setAuth(user, accessToken);
 
