@@ -12,7 +12,7 @@ const config = {
         "!src/routes/productRoutes.js",
         "!src/models/User.js",
         "!src/models/Product.js",
-        "!src/controllers/authController.js",
+        "src/controllers/authController.js",
         "!src/controllers/productController.js",
         "!src/middleware/**",
         "!src/app.js"
