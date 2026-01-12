@@ -17,9 +17,9 @@ app.use(bodyParser.json())
 
 app.use('/api/products', productRoutes);
 
-app.use('/api/auth',authRoutes);
+app.use('/api/auth', authRoutes);
 
-app.use((req,res) => res.status(404).json({ message: 'Not Found'}));
+app.use((req, res) => res.status(404).json({ message: 'Not Found' }));
 
 app.use(errorHandler)
 
